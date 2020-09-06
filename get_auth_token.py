@@ -20,7 +20,10 @@ def get_auth_token():
 if __name__ == "__main__":
     get_auth_token()
 
+<<<<<<< HEAD
 
 print('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRAAAAAAAAAAAAAAAAAAWWWWWWWWWWWWWWWWWWWWWWRRRRRRRRRRRRRRRRR')
 
 print('lorem ipsum')
+=======
+>>>>>>> parent of c0612d7... made adjustments
