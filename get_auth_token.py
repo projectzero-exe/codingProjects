@@ -24,6 +24,6 @@ if __name__ == "__main__":
 
 print('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRAAAAAAAAAAAAAAAAAAWWWWWWWWWWWWWWWWWWWWWWRRRRRRRRRRRRRRRRRffffggg')
 
-print('lorem ipsum')
+print('lorem ipsum what up')
 =======
 >>>>>>> parent of c0612d7... made adjustments
