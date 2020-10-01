@@ -1,7 +1,7 @@
 import requests
 from dnac_config import IP2
 from get_auth_token import get_auth_token
-from pprint import pprint
+
 
 
 def get_device_list():
