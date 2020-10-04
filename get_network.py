@@ -19,10 +19,8 @@ def print_device_list(device_json):
     print(f"{'HostName':42}{'MgmtIpAddress':17}{'SerialNumber':16}{'PlatformId':18}{'SoftwareVersion':18}{'Role':16}{'UpTime':15}")
     print(f'{"-" * 147}')
     for device in device_json['response']:
-        print("{0:42}{1:17}{2:16}{3:18}{4:18}{5:16}{6:15}".format(device['hostname'], device['managementIpAddress'],
-                                                                  device['serialNumber'], device['platformId'],
-                                                                  device['softwareVersion'], device['role'],
-                                                                  device['upTime']))
+        print(f"{device['hostname']:42}{device['managementIpAddress']:17}{device['serialNumber']:16}{device['platformId']:18}{device['softwareVersion']:18}{device['role']:16}{device['upTime']:15}")
+
     print(f'{"-" * 147}')
     # print(type(todos))
     # print(todos)
