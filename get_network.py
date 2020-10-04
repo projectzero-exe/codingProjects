@@ -11,7 +11,7 @@ def get_device_list():
     #params = {'response': 'family;routers', 'fullText': 'true'}
     hdr = {'x-auth-token': token, 'content-type': 'application/json'}
     r = requests.get(IP2, headers=hdr, verify=False)
-    #pprint(r.json()['response'])
+    #pprint(r.json()['response']) this can provide me with the list of key before i query specifics
     print_device_list(r.json())
 
 
