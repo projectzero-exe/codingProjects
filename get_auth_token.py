@@ -14,7 +14,7 @@ def get_auth_token():
     r = requests.post(url, auth=HTTPBasicAuth(USERNAME, PASSWORD),
                       headers={'content-type': 'application/json'}, verify=False)
     token= r.json()['Token']
-    print("Token retrieved from DNA Center is: {}".format(token))
+    print(f"Token retrieved from DNA Center is: {token}")
     return token
 
 if __name__ == "__main__":
