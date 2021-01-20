@@ -1,0 +1,17 @@
+location, address
+Slot0/Port0, 10.234.1.8
+Slot0/Port1, 10.234.1.9
+Slot0/Port2, 10.234.2.8
+Slot0/Port3, 10.234.2.9
+Slot0/Port4, 10.234.6.8
+Slot0/Port5, 10.234.6.9
+Slot0/Port6, 10.234.7.8
+Slot0/Port7, 10.234.7.9
+Slot1/Port0, 10.234.1.18
+Slot1/Port1, 10.234.1.19
+Slot1/Port2, 10.234.2.18
+Slot1/Port3, 10.234.2.19
+Slot1/Port4, 10.234.6.18
+Slot1/Port5, 10.234.6.19
+Slot1/Port6, 10.234.7.18
+Slot1/Port7, 10.234.7.19

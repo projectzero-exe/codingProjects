@@ -1,0 +1,14 @@
+devices:
+    WWT-ATP-CIN:
+    connections:
+      cli:
+        ip: 10.233.30.3
+        protocol: ssh
+    credentials:
+      default:
+        password: WWTwwt1!
+        username: admin
+      enable:
+        password: WWTwwt1!
+    os: nxos
+    type: nxos
