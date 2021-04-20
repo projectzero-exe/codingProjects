@@ -1,0 +1,53 @@
+---
+-
+  name: Installing tomcat server
+  hosts: all
+  become: true
+  tasks:
+    -
+      name: Installing Java
+      yum:
+        name: java
+        state: latest
+    -
+      name: Installing firewalld
+      yum:
+        name: firewalld
+        state: installed
+    -
+      name: Start the firewall service
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+    -
+      name: Configure firewall rules
+      firewalld:
+        zone: public
+        permanent: yes
+        port: 8080/tcp
+        state: enabled
+
+    -
+      name: reload firewalld
+      systemd:
+        name: firewalld
+        state: reloaded
+
+
+    -
+      name: Downloading tomcat server packages
+      get_url:
+        url: https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8/v8.5.61/bin/apache-tomcat-8.5.61.tar.gz
+        dest: /usr/local
+
+    -
+      name: extract tomcat packages
+      unarchive:
+        src: /usr/local/apache-tomcat-8.5.61.tar.gz
+        dest: /usr/local
+        remote_src: yes
+
+    -
+      name: start tomcat services
+      shell: nohup /usr/local/apache-tomcat-8.5.61/bin/startup.sh
