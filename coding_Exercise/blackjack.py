@@ -1,8 +1,9 @@
+
 import random
 from time import sleep
-import numpy as np
 
-# print(logo)
+
+
 used_deck = {}
 deck_ofCards = {
     "AceH": 11, "2H": 2, "3H": 3, "4H": 4,
@@ -79,40 +80,59 @@ deck_ofCards = {
     "9D": 9, "JD": 10, "QD": 10, "KD": 10,
 }
 
+player1 = []
+computer = []
 
 def drawingCards():
     draw, draw1 = random.choice(list(deck_ofCards.items()))
-    print(draw, draw1)
+    #print(draw, draw1)
     used_deck[draw] = draw1
     del deck_ofCards[draw]
     return draw, draw1
 
-player1 = []
-computer = []
+def computerDrawing():
+    compK, compV = drawingCards()
+    computer.append(compV)
+    print(compK)
+    return compK, compV
 
-compK, compV = drawingCards()
 
-playerK, playerV = drawingCards()
-
-compK1, compV1 = drawingCards()
-
-playerK1, playerV1 = drawingCards()
-
-player1.append(playerV)
-computer.append(compV)
-player1.append(playerV1)
-computer.append(compV1)
+def playerDrawing():
+    playerK, playerV = drawingCards()
+    player1.append(playerV)
+    print(playerK)
+    return playerK, playerV
 
 
 
+#print(f"Player1 cards are {card1} and {card2}")
 
-res = sum(player1)
-resC = sum(computer)
-print(res)
-print(resC)
+card1, cardVP1 = playerDrawing()
+card3, cardCP1 = computerDrawing()
+card2, cardVP2 = playerDrawing()
+card4, cardCP2 = computerDrawing()
+print(f"House cards: {card4}")
+print(f"Player1 cards are {card1} and {card2}")
 
-# while True:
-#     k, v = drawingCards()
-#     print(f"K: {k}")
-#     print(f"V: {v}")
-#     if deck_ofCards == {}:
+while True:
+
+    
+    draw_next = input("Would you like to draw another card? Type ('yes') or ('no'): ").lower()
+    if cardVP1 == 11 or cardVP2 == 11:
+        x = input("Would you like to keep it as 11 or change it to 1? "
+              "\ntype 'yes' to change the value or 'no' to keep the card as is: ").lower
+        if x == 'yes' or x == 'y':
+            player1.sort(reverse=True)
+            player1[0] = 1
+    if draw_next == "y" or draw_next == "yes":
+        card5, cardVP3 = playerDrawing()
+        print(f"Player1 cards are {card1}, {card2} and {card5}")
+        res = sum(player1)
+        resC = sum(computer)
+        print(res)
+        print(resC)
+        # if cardVP3 == 11:
+
+    # else:
+    #     break
+
