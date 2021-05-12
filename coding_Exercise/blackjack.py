@@ -1,10 +1,7 @@
-
 import random
-from time import sleep
 
 
 
-used_deck = {}
 deck_ofCards = {
     "AceH": 11, "2H": 2, "3H": 3, "4H": 4,
     "5H": 5, "6H": 6, "7H": 7, "8H": 8,
@@ -79,16 +76,17 @@ deck_ofCards = {
     "5D": 5, "6D": 6, "7D": 7, "8D": 8,
     "9D": 9, "JD": 10, "QD": 10, "KD": 10,
 }
-
+used_deck = {}
 player1 = []
 computer = []
 
+
 def drawingCards():
     draw, draw1 = random.choice(list(deck_ofCards.items()))
-    #print(draw, draw1)
     used_deck[draw] = draw1
     del deck_ofCards[draw]
     return draw, draw1
+
 
 def computerDrawing():
     compK, compV = drawingCards()
@@ -104,8 +102,7 @@ def playerDrawing():
     return playerK, playerV
 
 
-
-#print(f"Player1 cards are {card1} and {card2}")
+# print(f"Player1 cards are {card1} and {card2}")
 
 card1, cardVP1 = playerDrawing()
 card3, cardCP1 = computerDrawing()
@@ -116,23 +113,39 @@ print(f"Player1 cards are {card1} and {card2}")
 
 while True:
 
-    
+    # if sum(player1) == 11:
+    #     player1.sort(reverse=True)
+    #     player1[0] = 1
+
     draw_next = input("Would you like to draw another card? Type ('yes') or ('no'): ").lower()
     if cardVP1 == 11 or cardVP2 == 11:
-        x = input("Would you like to keep it as 11 or change it to 1? "
-              "\ntype 'yes' to change the value or 'no' to keep the card as is: ").lower
+        x = input(
+            "Would you like to keep it as 11 or change it to 1? "
+            "\ntype 'yes' to change the value or 'no' to keep the card as is: "
+        ).lower
         if x == 'yes' or x == 'y':
             player1.sort(reverse=True)
             player1[0] = 1
+        else:
+            continue
     if draw_next == "y" or draw_next == "yes":
         card5, cardVP3 = playerDrawing()
-        print(f"Player1 cards are {card1}, {card2} and {card5}")
+        print(f"Player1 cards are {player1}")
         res = sum(player1)
         resC = sum(computer)
         print(res)
         print(resC)
-        # if cardVP3 == 11:
+        if cardVP3 == 11:
+            player1.sort(reverse=True)
+            player1[0] = 1
+        if res > 21:
+            print(f"{res}. Player loses!")
+            break
+        if resC > 21:
+            print(f"{resC}. House loses!")
+            break
 
-    # else:
-    #     break
+    else:
+
+        break
 
