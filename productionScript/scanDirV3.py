@@ -1,5 +1,5 @@
 import os
-
+"""This function will scan spcified directory and validate QC log are correct. Requires more refinement"""
 input1 = input("Which 'dir' would you like to scan?\nEnter here: ")
 
 failed = []
