@@ -49,17 +49,17 @@ def chk_poap_and_initconfig_dialog(console):
 
 
 """Setting standard Password during POAP phase(experimental)"""
-# def chk_poap_pass(console):
-#     run_cmd(console, '\r\n', 10)
-#     run_cmd(console, '\r\n')
-#     run_cmd(console, '\r\n')
-#     poap_prompt1 = read_from_con(console)
-#     if 'Enter the password for "admin":' in poap_prompt1:
-#         run_cmd(console, '**Password\r\n', 5)
-#         run_cmd(console, '**Password\r\n', 5)
-#         run_cmd(console, 'no\r\n', 10)
-#     else:
-#         return False
+def chk_poap_pass(console):
+     run_cmd(console, '\r\n', 10)
+     run_cmd(console, '\r\n')
+     run_cmd(console, '\r\n')
+     poap_prompt1 = read_from_con(console)
+     if 'Enter the password for "admin":' in poap_prompt1:
+         run_cmd(console, '**Password\r\n', 5)
+         run_cmd(console, '**Password\r\n', 5)
+         run_cmd(console, 'no\r\n', 10)
+     else:
+         return False
 
 """Allows you to move from login prompt to enter privileged EXEC mode """
 
@@ -112,20 +112,21 @@ def run_list_cmd(console, rlc="", sleep=2):
 
 """This snippet parses retrun CLI output and converts it into a json data structure and converts 
 it into a usable python object("txttp" is to specify which template to use; "readcli"  """
-# def parsing_txtFSM(console, txttp='', cmdCLI=''):
-#     run_cmd(console, "term len 0", sleep=1)
-#     run_cmd(console, cmdCLI)
-#     readcli = read_from_con(console)
-#     with open(txttp) as t:
-#         results_template = textfsm.TextFSM(t)
-#         content= readcli
-#         presults = results_template.ParseTextToDicts(content)
-#         res = json.dumps(presults, indent=2)
-#         print(res)
-#         res1 = json.loads(res)
-#         #print(res1)
-#         return res1
+ def parsing_txtFSM(console, txttp='', cmdCLI=''):
+     run_cmd(console, "term len 0", sleep=1)
+     run_cmd(console, cmdCLI)
+     readcli = read_from_con(console)
+     with open(txttp) as t:
+         results_template = textfsm.TextFSM(t)
+         content= readcli
+         presults = results_template.ParseTextToDicts(content)
+         res = json.dumps(presults, indent=2)
+         print(res)
+         res1 = json.loads(res)
+         #print(res1)
+         return res1
 
+ """"This function is designed for devices running IOS-XE. This function will retrieve cli output and convert serial number info into a JSON format"""
 
 def getSerialnum(console, cmdSP1="show inventory | i PID"):
     lsfieldserial = []
@@ -141,6 +142,7 @@ def getSerialnum(console, cmdSP1="show inventory | i PID"):
     # x = lsfieldserial
     x1 = lsfieldserial[0][3].split(",")
     # print(x)
+    """have to keep working to improve the extraction process currently script only will retrieve serial number from a NCS4202 device"""
     # for i in range(len(lsfield1)):
     #     if i == 0:
     #         for x in range(len(fields1)):
@@ -165,8 +167,7 @@ def getSerialnum(console, cmdSP1="show inventory | i PID"):
     #             dicts5[fields1[x]] = lsfield1[i][x]
     return x1[2].replace("SN:", "").replace("PID:", "").replace("VID:", "")
 
-
-
+""""This function is designed for devices running IOS-XE. This function will retrieve cli output and convert "show plaform" info into a JSON format"""
 def showplattoDict(console, cmdSP="show platform"):
 
     run_cmd(console, cmd="term len 0")
@@ -256,6 +257,7 @@ def showplattoDict(console, cmdSP="show platform"):
 
     return result
 
+"""this is a new concept that needs more work. function will reload device wait a specified time and will handle initial sys configs"""
 def reloadsequence(console, cmdre="reload", savecfg="", sleep=500):
     run_cmd(console, cmdre, sleep)
     run_cmd(console)
