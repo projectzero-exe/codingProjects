@@ -2,7 +2,7 @@ import threading
 #from datetime import datetime
 import initConsole_cfg
 import cmd_ls
-
+"""Work in progress. Will leverage initConsole library to perform initial configuration via serial console and distributed via Multithreading"""
 def multiprocessing(con):
     console = initConsole_cfg.open_con(con)
 
