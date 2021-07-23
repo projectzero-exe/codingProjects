@@ -18,77 +18,50 @@ def showplattoDict():
         # fields in the sample file
         fields1 = ['Slot', 'Type', 'State', 'Insert time']
         fields2 = ['Slot', 'CPLD Version', 'Firmware Ver']
-        # intermediary list to process lsfield 1 and 2
+        
 
         description = list(readcliSP.strip().replace('ok', 'okActive').replace('active', '').split("\n"))
         print(description)
         # list comprehension will take 'description' iterate strip excess space and split list into max elements of 4 per nested list
         # and remove emtpy strings
+            
         x = [ele.strip().split(None, 4) for ele in description if ele != ""]
         print(x)
-
-        # print(len(x))
+        for z in range(len(x)):
+            if len(x[z]) < 4:
+                x[z].insert(1, "N/A")
+            print(x[z])
+        # intermediary list to process lsfield 1 and 2
         lsfield1 = x[6:12]
         lsfield2 = x[14:]
 
-        print(lsfield2)
-        print("#" * 120)
-        print(lsfield1)
-        # dicts = {}
-        # for i in range(len(lsfield1)):
-        #     for j in range(len(fields1)):
-        #         dicts.update(locals()[f'fields1[{j}]: lsfield1[{j}]'])
-        # print(dicts)
-        # for i in range(len(lsfield1)):
+        #print(lsfield2)
+        #print("#" * 120)
+        #print(lsfield1)
         #
-        # print("#" * 200)
         for i in range(len(lsfield1)):
             for x in range(len(fields1)):
                 locals()[f'dicts{i}'][fields1[x]] = lsfield1[i][x]
 
-        #     elif i == 1:
-        #         for x in range(len(fields1)):
-        #             dicts1[fields1[x]] = lsfield1[i][x]
-        #
-        #     elif i == 2:
-        #         for x in range(len(fields1)):
-        #             dicts2[fields1[x]] = lsfield1[i][x]
-        #
-        #     elif i == 3:
-        #         for x in range(len(fields1)):
-        #             dicts3[fields1[x]] = lsfield1[i][x]
-        #     elif i == 4:
-        #         for x in range(len(fields1)):
-        #             dicts4[fields1[x]] = lsfield1[i][x]
-        #     elif i == 5:
-        #         for x in range(len(fields1)):
-        #             dicts5[fields1[x]] = lsfield1[i][x]
-        # print(lsfield2)
-        # for i in range(len(lsfield2)):
-        #     if i == 0:
-        #         for x in range(len(fields2)):
-        #             dicts6[fields2[x]] = lsfield2[i][x]
-        #
-        #     elif i == 1:
-        #         for x in range(len(fields2)):
-        #             dicts7[fields2[x]] = lsfield2[i][x]
+        for e in range(len(lsfield2)):
+            lsfield2[e].remove('N/A')
+        print(lsfield2)
         for i in range(len(lsfield2)):
-            for x in range(len(fields1)):
+            for x in range(len(fields2)):
                 locals()[f'dicts0{i}'][fields2[x]] = lsfield2[i][x]
         rlt = []
         for i in range(6):
             rlt.append(locals()[f'dicts{i}'])
         for i in range(2):
             rlt.append(locals()[f'dicts0{i}'])
+        #
+
+        #print(rlt)
 
 
-        print(rlt)
-
-
-        result0 = json.dumps(rlt, indent=2)
-        result = json.loads(json.dumps(rlt, indent=2))
-        print(result0)
-        print(result)
+        # result = json.loads(json.dumps(rlt, indent=2))
+        # print(result0)
+        # print(result)
 
 
 showplattoDict()
