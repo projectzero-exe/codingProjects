@@ -59,9 +59,9 @@ def showplattoDict():
         #print(rlt)
 
 
-        # result = json.loads(json.dumps(rlt, indent=2))
-        # print(result0)
+        result = json.loads(json.dumps(rlt, indent=2))
         # print(result)
+        return result
 
 
 showplattoDict()
