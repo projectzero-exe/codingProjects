@@ -1,0 +1,138 @@
+---
+- name: Configuring YAML playbook to create a LAMP stack
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    -
+        name: Installing firewalld
+        yum:
+          name: firewalld
+          state: installed
+    -
+        name: Start the firewall service
+        service:
+          name: firewalld
+          state: started
+          enabled: yes
+    -
+        name: Enable EPEL repo for Centos7
+        yum:
+          name: epel-release
+          state: installed
+    -
+        name: installing mariadb
+        yum:
+          name:
+            - mariadb-server
+            - mariadb
+            - python3
+            - python3-PyMySQL
+            - MySQL-python
+          state: installed
+
+    -
+        name: start mariadb service
+        service:
+          name: mariadb
+          state: started
+          enabled: yes
+    -
+        name: Set maria user
+        mysql_user:
+          login_user: 'root'
+          login_password: ''
+          name: 'ecomuser'
+          password: 'ecompassword'
+          priv: '*.*:ALL'
+          state: present
+          host: localhost
+
+    # -
+    #     name: Creating database
+    #     mysql_db:
+
+    -
+        name: Configure firewall rules
+        firewalld:
+          zone: public
+          permanent: yes
+          port: 3306/tcp
+          state: enabled
+    -
+        name: Configure firewall rules
+        firewalld:
+          zone: public
+          permanent: yes
+          port: 80/tcp
+          state: enabled
+
+    -
+        name: reload firewalld
+        systemd:
+          name: firewalld
+          state: reloaded
+    -
+        name: Installing git
+        yum:
+          name: git
+          state: installed
+
+    -
+        name: Clone repo
+        git:
+          repo: https://github.com/kodekloudhub/learning-app-ecommerce.git
+          dest: /var/www/html/
+          update: yes
+
+    # -
+    #     name: Checking if git repo file exists
+    #     stat:
+    #       path: "/var/www/html/assets/db-load-script.sql"
+    #     register: git_data
+
+    # -
+    #     name: download pre-made website through git
+    #     git:
+    #       repo: https://github.com/kodekloudhub/learning-app-ecommerce/blob/master/assets/db-load-script.sql
+    #       dest: /var/www/html/assets/
+    #       update: no
+
+    -
+        name: load db-load-script.sql to mysql
+        command: mysql < db-load-script.sql
+        warn: no
+        #need to use something else besides shell did not work according to ansible try
+        #[WARNING]: Consider using the replace, lineinfile or template module rather than running sed.
+        #If you need to use command because replace, lineinfile or template is insufficient you can add warn=False to this command task or set
+        #command_warnings=False in ansible.cfg to get rid of this message.
+
+
+    -
+        name: Install required packages
+        yum:
+          name:
+            - httpd
+            - php
+            - php-mysql
+          state: latest
+
+    -
+        name: Configure httpd
+        command: sed -i 's/index.html/index.php/g' /etc/httpd/conf/httpd.conf
+
+    -
+        name: Starting httpd
+        service:
+          name: httpd
+          state: started
+          enabled: yes
+
+
+    -
+        name: update index.php
+        command: sed -i 's/172.17.237.109/localhost/g' /var/www/html/index.php
+        warn: no
+        #need to use something else besides shell did not work according to ansible try
+        #[WARNING]: Consider using the replace, lineinfile or template module rather than running sed.  If you need to use command because replace, lineinfile or template is insufficient you can add warn=False to this command task or set
+        #command_warnings=False in ansible.cfg to get rid of this message.

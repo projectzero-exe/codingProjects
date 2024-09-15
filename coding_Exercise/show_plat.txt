@@ -1,0 +1,19 @@
+
+term len 0
+Router#show platform 
+Chassis type: NCS4202-SA
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+ 0/0      12xGE-4x10GE-FIXED  ok                    3d00h         
+R0        NCS4202-SA          ok, active            3d00h         
+F0                            ok, active            3d00h         
+P0        ASR920-PSU0         ok                    3d00h         
+P1        ASR920-PSU1         ok                    3d00h         
+P2        ASR920-FAN          ok                    3d00h         
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+R0        18030116            15.6(9r)S                           
+F0        18030116            15.6(9r)S                           
+

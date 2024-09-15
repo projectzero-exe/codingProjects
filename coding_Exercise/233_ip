@@ -1,0 +1,597 @@
+interface range te0/1/0-7
+no shut
+interface range te1/1/0-7
+no shut
+interface range te2/1/0-7
+no shut
+interface range te3/1/0-7
+no shut
+interface range te6/1/0-7
+no shut
+interface range te7/1/0-7
+no shut
+interface range te8/1/0-7
+no shut
+interface range te9/1/0-7
+no shut
+
+
+vrf definition TE00
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE01
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE02
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE03
+ !
+ address-family ipv4
+ exit-address-family
+!
+ vrf definition TE04
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE05
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE06
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE07
+!
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE10
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE11
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE12
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE13
+ !
+ address-family ipv4
+ exit-address-family
+!
+!
+vrf definition TE14
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE15
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE16
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE17
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE20
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE21
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE22
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE23
+ !
+ address-family ipv4
+ exit-address-family
+!
+!
+vrf definition TE24
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE25
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE26
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE27
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE30
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE31
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE32
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE33
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE34
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE35
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE36
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE37
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE60
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE61
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE62
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE63
+ !
+ address-family ipv4
+ exit-address-family
+!
+!
+vrf definition TE64
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE65
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE66
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE67
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE70
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE71
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE72
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE73
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE74
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE75
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE76
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE77
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE80
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE81
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE82
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE83
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE84
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE85
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE86
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE87
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE90
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE91
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE92
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE93
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE94
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE95
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE96
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition TE97
+ !
+ address-family ipv4
+ exit-address-family
+!
+!
+interface TenGigabitEthernet0/1/0
+ vrf forwarding TE00
+ ip address 10.233.1.08 255.255.255.128
+!
+interface TenGigabitEthernet0/1/1
+ vrf forwarding TE01
+ ip address 10.233.1.09 255.255.255.128
+!
+interface TenGigabitEthernet0/1/2
+ vrf forwarding TE02
+ ip address 10.233.2.08 255.255.255.128
+!
+interface TenGigabitEthernet0/1/3
+ vrf forwarding TE03
+ ip address 10.233.2.09 255.255.255.128
+!
+interface TenGigabitEthernet0/1/4
+ vrf forwarding TE04
+ ip address 10.233.6.08 255.255.255.128
+!
+interface TenGigabitEthernet0/1/5
+ vrf forwarding TE05
+ ip address 10.233.6.09 255.255.255.128
+!
+interface TenGigabitEthernet0/1/6
+ vrf forwarding TE06
+ ip address 10.233.7.08 255.255.255.128
+!
+interface TenGigabitEthernet0/1/7
+ vrf forwarding TE07
+ ip address 10.233.7.09 255.255.255.128
+!
+interface TenGigabitEthernet1/1/0
+ vrf forwarding TE10
+ ip address 10.233.1.18 255.255.255.128
+!
+interface TenGigabitEthernet1/1/1
+ vrf forwarding TE11
+ ip address 10.233.1.19 255.255.255.128
+!
+interface TenGigabitEthernet1/1/2
+ vrf forwarding TE12
+ ip address 10.233.2.18 255.255.255.128
+!
+interface TenGigabitEthernet1/1/3
+ vrf forwarding TE13
+ ip address 10.233.2.19 255.255.255.128
+!
+interface TenGigabitEthernet1/1/4
+ vrf forwarding TE14
+ ip address 10.233.6.18 255.255.255.128
+!
+interface TenGigabitEthernet1/1/5
+ vrf forwarding TE15
+ ip address 10.233.6.19 255.255.255.128
+!
+interface TenGigabitEthernet1/1/6
+ vrf forwarding TE16
+ ip address 10.233.7.18 255.255.255.128
+!
+interface TenGigabitEthernet1/1/7
+ vrf forwarding TE17
+ ip address 10.233.7.19 255.255.255.128
+!
+interface TenGigabitEthernet2/1/0
+ vrf forwarding TE20
+ ip address 10.233.1.28 255.255.255.128
+!
+interface TenGigabitEthernet2/1/1
+ vrf forwarding TE21
+ ip address 10.233.1.29 255.255.255.128
+!
+interface TenGigabitEthernet2/1/2
+ vrf forwarding TE22
+ ip address 10.233.2.28 255.255.255.128
+!
+interface TenGigabitEthernet2/1/3
+ vrf forwarding TE23
+ ip address 10.233.2.29 255.255.255.128
+!
+interface TenGigabitEthernet2/1/4
+ vrf forwarding TE24
+ ip address 10.233.6.28 255.255.255.128
+!
+interface TenGigabitEthernet2/1/5
+ vrf forwarding TE25
+ ip address 10.233.6.29 255.255.255.128
+!
+interface TenGigabitEthernet2/1/6
+ vrf forwarding TE26
+ ip address 10.233.7.28 255.255.255.128
+!
+interface TenGigabitEthernet2/1/7
+ vrf forwarding TE27
+ ip address 10.233.7.29 255.255.255.128
+!
+interface TenGigabitEthernet3/1/0
+ vrf forwarding TE30
+ ip address 10.233.1.38 255.255.255.128
+!
+interface TenGigabitEthernet3/1/1
+ vrf forwarding TE31
+ ip address 10.233.1.39 255.255.255.128
+!
+interface TenGigabitEthernet3/1/2
+ vrf forwarding TE32
+ ip address 10.233.2.38 255.255.255.128
+!
+interface TenGigabitEthernet3/1/3
+ vrf forwarding TE33
+ ip address 10.233.2.39 255.255.255.128
+!
+interface TenGigabitEthernet3/1/4
+ vrf forwarding TE34
+ ip address 10.233.6.38 255.255.255.128
+!
+interface TenGigabitEthernet3/1/5
+ vrf forwarding TE35
+ ip address 10.233.6.39 255.255.255.128
+!
+interface TenGigabitEthernet3/1/6
+ vrf forwarding TE36
+ ip address 10.233.7.38 255.255.255.128
+!
+interface TenGigabitEthernet3/1/7
+ vrf forwarding TE37
+ ip address 10.233.7.39 255.255.255.128
+!
+interface TenGigabitEthernet6/1/0
+ vrf forwarding TE60
+ ip address 10.233.1.68 255.255.255.128
+!
+interface TenGigabitEthernet6/1/1
+ vrf forwarding TE61
+ ip address 10.233.1.69 255.255.255.128
+!
+interface TenGigabitEthernet6/1/2
+ vrf forwarding TE62
+ ip address 10.233.2.68 255.255.255.128
+!
+interface TenGigabitEthernet6/1/3
+ vrf forwarding TE63
+ ip address 10.233.2.69 255.255.255.128
+!
+interface TenGigabitEthernet6/1/4
+ vrf forwarding TE64
+ ip address 10.233.6.68 255.255.255.128
+!
+interface TenGigabitEthernet6/1/5
+ vrf forwarding TE65
+ ip address 10.233.6.69 255.255.255.128
+!
+interface TenGigabitEthernet6/1/6
+ vrf forwarding TE66
+ ip address 10.233.7.68 255.255.255.128
+!
+interface TenGigabitEthernet6/1/7
+ vrf forwarding TE67
+ ip address 10.233.7.69 255.255.255.128
+ !
+interface TenGigabitEthernet7/1/0
+ vrf forwarding TE70
+ ip address 10.233.1.78 255.255.255.128
+!
+interface TenGigabitEthernet7/1/1
+ vrf forwarding TE71
+ ip address 10.233.1.79 255.255.255.128
+!
+interface TenGigabitEthernet7/1/2
+ vrf forwarding TE72
+ ip address 10.233.2.78 255.255.255.128
+!
+interface TenGigabitEthernet7/1/3
+ vrf forwarding TE73
+ ip address 10.233.2.79 255.255.255.128
+!
+interface TenGigabitEthernet7/1/4
+ vrf forwarding TE74
+ ip address 10.233.6.78 255.255.255.128
+!
+interface TenGigabitEthernet7/1/5
+ vrf forwarding TE75
+ ip address 10.233.6.79 255.255.255.128
+!
+interface TenGigabitEthernet7/1/6
+ vrf forwarding TE76
+ ip address 10.233.7.78 255.255.255.128
+!
+interface TenGigabitEthernet7/1/7
+ vrf forwarding TE77
+ ip address 10.233.7.79 255.255.255.128
+!
+interface TenGigabitEthernet8/1/0
+ vrf forwarding TE80
+ ip address 10.233.1.88 255.255.255.128
+!
+interface TenGigabitEthernet8/1/1
+ vrf forwarding TE81
+ ip address 10.233.1.89 255.255.255.128
+!
+interface TenGigabitEthernet8/1/2
+ vrf forwarding TE82
+ ip address 10.233.2.88 255.255.255.128
+!
+interface TenGigabitEthernet8/1/3
+ vrf forwarding TE83
+ ip address 10.233.2.89 255.255.255.128
+!
+interface TenGigabitEthernet8/1/4
+ vrf forwarding TE84
+ ip address 10.233.6.88 255.255.255.128
+!
+interface TenGigabitEthernet8/1/5
+ vrf forwarding TE85
+ ip address 10.233.6.89 255.255.255.128
+!
+interface TenGigabitEthernet8/1/6
+ vrf forwarding TE86
+ ip address 10.233.7.88 255.255.255.128
+!
+interface TenGigabitEthernet8/1/7
+ vrf forwarding TE87
+ ip address 10.233.7.89 255.255.255.128
+!
+interface TenGigabitEthernet9/1/0
+ vrf forwarding TE90
+ ip address 10.233.1.98 255.255.255.128
+!
+interface TenGigabitEthernet9/1/1
+ vrf forwarding TE91
+ ip address 10.233.1.99 255.255.255.128
+!
+interface TenGigabitEthernet9/1/2
+ vrf forwarding TE92
+ ip address 10.233.2.98 255.255.255.128
+!
+interface TenGigabitEthernet9/1/3
+ vrf forwarding TE93
+ ip address 10.233.2.99 255.255.255.128
+!
+interface TenGigabitEthernet9/1/4
+ vrf forwarding TE94
+ ip address 10.233.6.98 255.255.255.128
+!
+interface TenGigabitEthernet9/1/5
+ vrf forwarding TE95
+ ip address 10.233.6.99 255.255.255.128
+!
+interface TenGigabitEthernet9/1/6
+ vrf forwarding TE96
+ ip address 10.233.7.98 255.255.255.128
+!
+interface TenGigabitEthernet9/1/7
+ vrf forwarding TE97
+ ip address 10.233.7.99 255.255.255.128
